@@ -32,9 +32,11 @@ class Network():
 		model.add(Activation('relu'))
 		model.add(Dropout(0.5))
 		model.add(Dense(self.output_size))
-		model.add(Activation('relu'))
+		model.add(Activation('softmax'))
 
-		model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+		model.compile(loss='categorical_crossentropy',
+					  optimizer='rmsprop',
+					  metrics=['accuracy'])
 		return model
 	def fit(self, inputs, target, valid_inputs, valid_target):
 		self.model.fit(
@@ -42,7 +44,7 @@ class Network():
 			target,
 			validation_data=(valid_inputs, valid_target),
 			epochs=1,
-			batch_size=64,
+			batch_size=128,
 			verbose=0)
 	def predict(self, X):
 		return self.model.predict(X)

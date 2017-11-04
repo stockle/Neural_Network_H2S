@@ -30,55 +30,40 @@ def run(args, network):
 		network.save('trained.h5')
 	elif args[1] == '--predict' and len(args) == 3:
 		P = np.empty((28, 28))
+		result = []
 		if args[2] == '0':
 			im = cv2.imread('data/images/0/10.png')
-#			im = im / 255
-			grey = np.zeros((im.shape[0], im.shape[1]))
-			for rownum in range(len(im)):
-				for colnum in range(len(im[rownum])):
-					grey[rownum][colnum] = average(im[rownum][colnum])
-			P[0:28, 0:28] = grey
-			P_ = P.reshape(1, 1, 28, 28)
-			print network.predict(P_)
 		elif args[2] == '1':
-			im = imread('data/images/1/14.png')
-        	        im = im / 255
-        	        print network.predict(im)
+			im = cv2.imread('data/images/1/14.png')
 		elif args[2] == '2':
-			im = imread('data/images/2/1.png')
-        	        im = im / 255
-        	        print network.predict(im)
+			im = cv2.imread('data/images/2/1.png')
 		elif args[2] == '3':
-			im = imread('data/images/3/18.png')
-			im = im / 255
-			print network.predict(im)
+			im = cv2.imread('data/images/3/18.png')
 		elif args[2] == '4':
-			im = imread('data/images/4/4.png')
-	                im = im / 255
-        	        print network.predict(im)
+			im = cv2.imread('data/images/4/4.png')
 		elif args[2] == '5':
-			im = cv2.imread('data/images/5/8.png')
-	                im = im / 255
-	                print network.predict(im)
+			im = cv2.cv2.imread('data/images/5/8.png')
 		elif args[2] == '6':
-			im = imread('data/images/6/11.png')
-        	        im = im / 255
-        	        print network.predict(im)
+			im = cv2.imread('data/images/6/11.png')
 		elif args[2] == '7':
-			im = imread('data/images/7/0.png')
-        	        im = im / 255
-			print network.predict(im)
+			im = cv2.imread('data/images/7/0.png')
 		elif args[2] == '8':
-			im = imread('data/images/8/61.png')
-	                im = im / 255
-	                print network.predict(im)
+			im = cv2.imread('data/images/8/61.png')
 		elif args[2] == '9':
-			im = imread('data/images/9/9.png')
-        	        im = im / 255
-        	        print network.predict(im)
+			im = cv2.imread('data/images/9/9.png')
 		else:
 			print "Error"
 			return
+		grey = np.zeros((im.shape[0], im.shape[1]))
+		for rownum in range(len(im)):
+			for colnum in range(len(im[rownum])):
+				grey[rownum][colnum] = average(im[rownum][colnum])
+		P[0:28, 0:28] = grey
+		P_ = np.reshape(P, (1, 1, 28, 28))
+		result = network.predict(P_)[0]
+		for i in range(len(result)):
+			if result[i] == 1:
+				print i
 
 	else:
 		print 'Unknown command'
