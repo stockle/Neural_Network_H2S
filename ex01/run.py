@@ -4,14 +4,14 @@ import classes
 import sys
 import os
 
-EPOCHS = 420
+EPOCHS = 42
 
 def get_inputs(path):
 	seed = 42
 	ran = np.random.seed(seed)
 	dataset = np.loadtxt(path, delimiter=',')
-	X = dataset[:,0:1].astype(np.float)
-	Y = dataset[:,1:].astype(np.float)
+	X = dataset[1:,0:1].astype(np.float)
+	Y = dataset[1:,1:].astype(np.float)
 	(X_, x, Y_, y) = train_test_split(X, Y, test_size=0.33, random_state=seed)
 	return (X_, x, Y_, y)
 

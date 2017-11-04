@@ -1,3 +1,4 @@
+import os
 import csv
 from random import randint
 
@@ -7,7 +8,11 @@ if __name__ == "__main__":
             writer = csv.writer(csvfile, delimiter = ',')
             for i in range(300):
                 arr = []
-                num = randint(0, 9)
-                arr.append(num)
-                arr.append(num)
+                maxn = 0
+                for i in range(10):
+                    num = randint(0, 9)
+                    if num > maxn:
+                        maxn = num
+                    arr.append(num)
+                arr.append(maxn)
                 writer.writerow(arr)

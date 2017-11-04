@@ -4,7 +4,7 @@ import classes
 import sys
 import os
 
-EPOCHS = 420
+EPOCHS = 42
 
 def get_inputs(path):
 	seed = 42

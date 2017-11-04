@@ -12,10 +12,11 @@ class Network():
 	def _build_model(self):
 		keras.initializers.Constant(value=0)
 		model = Sequential()
-		model.add(Dense(32, input_dim=self.input_size, activation='linear'))
-		model.add(Dense(32, activation='linear'))
-		model.add(Dense(self.output_size, activation='linear'))
-		model.compile(loss='mean_absolute_error', optimizer='Adam', metrics=['accuracy'])
+		model.add(Dense(32, input_dim=self.input_size, activation='relu'))
+		for i in range(3):
+			model.add(Dense(64, activation='relu'))
+		model.add(Dense(self.output_size, activation='relu'))
+		model.compile(loss='mean_squared_error', optimizer='Adam', metrics=['accuracy'])
 		return model
 	def fit(self, inputs, target, valid_inputs, valid_target):
 		self.model.fit(

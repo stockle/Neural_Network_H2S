@@ -53,7 +53,6 @@ class Network():
 Data should be in csv(comma-separated value). Example below:
 
 ```
-X0,X1,X2,Y0
 0,0,1,1
 1,1,0,0
 0,0,1,1
@@ -62,14 +61,22 @@ X0,X1,X2,Y0
 ...
 ```
 
-Rows indicate a set of valid data. Columns indicate what that data is. Label your data with succinct names that allow users to identify what that data is.
-For all of your datasets there should be at least 300 training examples.
+Rows indicate a set of valid data. Columns indicate what that data is. For all of your datasets there should be at least 300 training examples.
 
 # ex00 - 101010
 
 In this exercise you will be classifying whether or not a number is a 0 or a 1. Sounds easy, right? There's a lot of work behind the libraries that make these classifications possible. For now you will be learning basic data manipulation, formatting, and how to use the Keras library.
 
+```
+$> python run.py --predict 1
+$> 1.0
+$> python run.py --predict 0
+$> 4.51851e-13
+```
+
 ## directories to turn in
+ - ex00
+## subdirectories to turn in
  - data
 ## files to turn in
  - run.py
@@ -81,7 +88,16 @@ In this exercise you will be classifying whether or not a number is a 0 or a 1. 
 
 This exercise will be the same as the previous one. You are predicting what a number is, WITH A TWIST. Turns out there are more numbers than 0 and 1(big shocker). You will be classifying a number between 0 and 9. There are many ways to do this. I recommend experimenting.
 
+```
+$> python run.py --predict 5
+$> 4.9957
+$> python run.py --predict 9
+$> 8.99301
+```
+
 ## directories to turn in
+ - ex01
+## subdirectories to turn in
  - data
 ## files to turn in
  - run.py
@@ -91,9 +107,22 @@ This exercise will be the same as the previous one. You are predicting what a nu
 
 # ex02 - Arrays
 
-Predict the largest number in an array.
+For this exercise your network will learn to recognize the largest number in an array. This time you will be processing an entire array at once instead of a single digit. Pay attention to data formatting, access, and manipulation; they may give you headaches at first, but it's very good knowledge to have!
+
+```
+$> python run.py --predict 1234567890
+$> 8.42899
+$> python run.py --predict 4862135878
+$> 9.03341
+$> python run.py --predict 0005000000
+$> 4.93534
+```
+
+As you can see, the algorithm will not always be entirely accurate. This could be due to a number of factors. The algorithm generalizing towards an accurate guess rather than a one-to-one decision is what makes neural networks both relatable and mysterious. How can you improve your accuracy? Why do you think the algorithm chose the way it did? Why do you think the algorithm loses accuracy on data of this structure?
 
 ## directories to turn in
+ - ex02
+## subdirectories to turn in
  - data
 ## files to turn in
  - run.py
@@ -104,6 +133,8 @@ Predict the largest number in an array.
 # ex03 - Images
 
 ## directories to turn in
+ - ex03
+## subdirectories to turn in
  - data
  - data/images
 /- data/images/train
@@ -119,6 +150,8 @@ Predict the largest number in an array.
 What kind of data interests you? How can machines learning help you analyze data more efficiently? You have a lot of freedom with this exercise but we suggest you maintain the structure you've been working with. If you find yourself with cluttered files, break them up into smaller, functional files, named appropriately of course.
 
 ## directories to turn in
+ - ex04
+## subdirectories to turn in
  - data
  - data/ ~useful subdirectories
 ## files to turn in
