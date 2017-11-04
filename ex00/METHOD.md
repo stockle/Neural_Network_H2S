@@ -1,13 +1,11 @@
 # Data
-In this project I am trying to predict whether or not a single number
-is either a 1 or a 0. Our input vector is a single dimension of size 1
-which contains a float. Our output vector is a single dimensional vector which contains a number closer to 1 or closer to 0.
+## Describe the data you are processing. What does it look like? What is the output? How are your results relevant to real-world applications? Even if you are just learning relationships in an abstract concept, what can we, the viewer, learn from your output?
 
 # Model
-For this I will be using a Sequential model from the Keras library set of models. This model is composed of three dense layers. The first and second contain 32 neurons. The last contains 1 neuron for the prediction.
+## Describe the model you are using. Why did you use this model? Why this model over other models? Use as much detail as you can and really defend your decision.
 
 # Activations
-The layers in our network are activated using tanh. Tanh will squash the value between 0 and 1.
+The layers in our network are activated using linear activation. Linear activation will allow us to scale along a range of numbers
 
 # Error
 The error is calculated by using Mean Absolute Error.

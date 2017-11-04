@@ -1,6 +1,6 @@
 from keras.optimizers import Adam
 from keras.models import Sequential
-from keras.layers import Activation, Dropout, Flatten, Dense
+from keras.layers import Activation, Dense
 import keras
 import numpy as np
 
@@ -15,7 +15,7 @@ class Network():
 		model.add(Dense(32, input_dim=self.input_size, activation='linear'))
 		model.add(Dense(32, activation='linear'))
 		model.add(Dense(self.output_size, activation='linear'))
-		model.compile(loss='binary_crossentropy', optimizer='SGD', metrics=['accuracy'])
+		model.compile(loss='mean_absolute_error', optimizer='Adam', metrics=['accuracy'])
 		return model
 	def fit(self, inputs, target, valid_inputs, valid_target):
 		self.model.fit(

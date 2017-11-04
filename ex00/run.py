@@ -12,23 +12,20 @@ def get_inputs(path):
 	dataset = np.loadtxt(path, delimiter=',')
 	X = dataset[:,0:1].astype(np.float)
 	Y = dataset[:,1:].astype(np.float)
-	(X, x, Y, y) = train_test_split(X, Y, test_size=0.33, random_state=seed)
-	return (X, x, Y, y)
+	(X_, x, Y_, y) = train_test_split(X, Y, test_size=0.33, random_state=seed)
+	return (X_, x, Y_, y)
 
 def run(args, network):
 	if args[1] == '--train':
+		print "Training ..."
 		for i in range(EPOCHS):
 			(X, x, Y, y) = get_inputs('data/numbers.csv')
 			network.fit(X, Y, x, y)
-			M = [float(1)]
-			T = np.array([M])
-			P = list(network.predict(T)[0])[0]
-			print P
-			network.save('trained.h5')
+		network.save('trained.h5')
 	elif args[1] == '--predict':
 		M = [float(args[2])]
 		T = np.array([M])
-		P = list(network.predict(T)[0])
+		P = list(network.predict(T)[0])[0]
 		print P
 	else:
 		return
@@ -36,7 +33,7 @@ def run(args, network):
 
 if __name__ == "__main__":
     if (len(sys.argv) > 1):
-        network = classes.Network(1, 2)
+        network = classes.Network(1, 1)
         if os.path.exists('trained.h5'):
             network.load('trained.h5')
         run(sys.argv, network)
