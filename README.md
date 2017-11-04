@@ -77,6 +77,46 @@ In this exercise you will be predicting whether or not a number is a 0 or a 1. S
 
 # ex01 - Thinking Bigger
 
+## directories to turn in
+ - data
+## files to turn in
+ - run.py
+ - classes.py
+ - trained.h5
+ - data/numbers.csv
+
 # ex02 - Arrays
 
+## directories to turn in
+ - data
+## files to turn in
+ - run.py
+ - classes.py
+ - trained.h5
+ - data/numbers.csv
+
 # ex03 - Images
+
+## directories to turn in
+ - data
+ - data/images
+/- data/images/train
+/- data/images/validation
+/- data/images/predict
+## files to turn in
+ - run.py
+ - classes.py
+ - trained.h5
+
+# ex04 - YOU
+
+What kind of data interests you? How can machines learning help you analyze data more efficiently? You have a lot of freedom with this exercise but we suggest you maintain the structure you've been working with. If you find yourself with cluttered files, break them up into smaller, functional files, named appropriately of course.
+
+## directories to turn in
+ - data
+ - data/ ~useful subdirectories
+## files to turn in
+ - run.py
+ - classes.py
+ - trained.h5
+ - ~ other_files.py
