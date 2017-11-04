@@ -22,7 +22,7 @@ def run(args, network):
 			(X, x, Y, y) = get_inputs('data/numbers.csv')
 			network.fit(X, Y, x, y)
 		network.save('trained.h5')
-	elif args[1] == '--predict':
+	elif args[1] == '--predict' and len(args) == 3:
 		M = [float(args[2])]
 		if M[0] >= 0 and M[0] <= 9:
 			T = np.array([M])

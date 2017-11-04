@@ -22,11 +22,15 @@ def run(args, network):
 			(X, x, Y, y) = get_inputs('data/numbers.csv')
 			network.fit(X, Y, x, y)
 		network.save('trained.h5')
-	elif args[1] == '--predict' and args[2] == '1' or args[2] == '0':
-		M = [float(args[2])]
-		T = np.array([M])
-		P = list(network.predict(T)[0])[0]
-		print P
+	elif args[1] == '--predict' and len(args) == 3:
+		if args[2] == '1' or args[2] == '0':
+			M = [float(args[2])]
+			T = np.array([M])
+			P = list(network.predict(T)[0])[0]
+			print P
+		else:
+			print "Error"
+			return
 	else:
 		print "Error"
 		return
