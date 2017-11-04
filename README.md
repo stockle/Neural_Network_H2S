@@ -65,7 +65,7 @@ Rows indicate a set of valid data. Columns indicate what that data is. Label you
 
 # ex00 - 101010
 
-In this exercise you will be predicting whether or not a number is a 0 or a 1. Sounds easy, right? There's a lot of work behind the libraries that make these predictions possible. For now you will be learning basic data manipulation, formatting, and how to use the Keras library.
+In this exercise you will be classifying whether or not a number is a 0 or a 1. Sounds easy, right? There's a lot of work behind the libraries that make these classifications possible. For now you will be learning basic data manipulation, formatting, and how to use the Keras library.
 
 ## directories to turn in
  - data
@@ -77,6 +77,8 @@ In this exercise you will be predicting whether or not a number is a 0 or a 1. S
 
 # ex01 - Thinking Bigger
 
+This exercise will be the same as the previous one. You are predicting what a number is, WITH A TWIST. Turns out there are more numbers than 0 and 1(big shocker). You will be classifying a number between 0 and 9. There are many ways to do this. I recommend experimenting.
+
 ## directories to turn in
  - data
 ## files to turn in
@@ -86,6 +88,8 @@ In this exercise you will be predicting whether or not a number is a 0 or a 1. S
  - data/numbers.csv
 
 # ex02 - Arrays
+
+Predict the largest number in an array.
 
 ## directories to turn in
  - data
