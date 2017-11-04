@@ -1,6 +1,16 @@
 # Neural Network H2S
 
+SO YOU WANT TO MAKE A NEURAL Network
+
+You've come to the right place. For these exercises we will be using the [Keras machine learning library](https://keras.io/).
+
 # Formatting
+
+It is very important to format your code in an accessible and organized way. This is very important when explaining your code, even more important when you are not there to explain it.
+
+## Network Formatting
+
+For every exercise you will return a classes.py file which will contain relevant classes. The formatting of any extra class is left to you. Try to keep it aligned in a similar format to the one mandatory class defined below:
 
 ```python
 # Define your network below
@@ -38,7 +48,25 @@ class Network():
 		# save the weights to a trained.h5 file
 ```
 
+## Data Formatting
+
+Data should be in csv(comma-separated value). Example below:
+
+```
+X0,X1,X2,Y0
+0,0,1,1
+1,1,0,0
+0,0,1,1
+0,0,1,1
+1,1,0,0
+```
+
+Rows indicate a set of valid data. Columns indicate what that data is. Label your data with succinct names that allow users to identify what that data is.
+
 # ex00 - 101010
+
+In this exercise you will be predicting whether or not a number is a 0 or a 1. Sounds easy, right? There's a lot of work behind the libraries that make these predictions possible. For now you will be learning basic data manipulation, formatting, and how to use the Keras library.
+
 ## directories to turn in
  - data
 ## files to turn in
