@@ -4,12 +4,16 @@ from keras.utils import np_utils
 from keras import backend as K
 import numpy as np
 import classes
+import cv2
 import sys
 import os
 
 EPOCHS = 1
 
 K.set_image_dim_ordering('th')
+
+def average(pixel):
+    return np.average(pixel)
 
 def run(args, network):
 	if args[1] == '--train' and len(args) == 2:
@@ -23,12 +27,19 @@ def run(args, network):
 			Y_ = np_utils.to_categorical(Y)
 			y_ = np_utils.to_categorical(y)
 			network.fit(X_, Y_, x_, y_)
-	network.save('trained.h5')
+		network.save('trained.h5')
 	elif args[1] == '--predict' and len(args) == 3:
+		P = np.empty((28, 28))
 		if args[2] == '0':
-			im = imread('data/images/0/10.png')
-			im = im / 255
-			print network.predict(im)
+			im = cv2.imread('data/images/0/10.png')
+#			im = im / 255
+			grey = np.zeros((im.shape[0], im.shape[1]))
+			for rownum in range(len(im)):
+				for colnum in range(len(im[rownum])):
+					grey[rownum][colnum] = average(im[rownum][colnum])
+			P[0:28, 0:28] = grey
+			P_ = P.reshape(1, 1, 28, 28)
+			print network.predict(P_)
 		elif args[2] == '1':
 			im = imread('data/images/1/14.png')
         	        im = im / 255
@@ -46,7 +57,7 @@ def run(args, network):
 	                im = im / 255
         	        print network.predict(im)
 		elif args[2] == '5':
-			im = imread('data/images/5/8.png')
+			im = cv2.imread('data/images/5/8.png')
 	                im = im / 255
 	                print network.predict(im)
 		elif args[2] == '6':

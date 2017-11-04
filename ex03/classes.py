@@ -41,7 +41,7 @@ class Network():
 			inputs,
 			target,
 			validation_data=(valid_inputs, valid_target),
-			epochs=10,
+			epochs=1,
 			batch_size=64,
 			verbose=0)
 	def predict(self, X):
