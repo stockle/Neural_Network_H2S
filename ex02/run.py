@@ -1,4 +1,5 @@
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from keras.datasets import mnist
 import numpy as np
 import classes
 import sys
