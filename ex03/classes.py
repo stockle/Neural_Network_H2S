@@ -1,28 +1,47 @@
 from keras.optimizers import Adam
 from keras.models import Sequential
-from keras.layers import Activation, Dense
+from keras.layers import Activation,\
+			Dense,\
+			Conv2D,\
+			MaxPooling2D,\
+			Flatten,\
+			Dropout
 import keras
 import numpy as np
 
 class Network():
-	def __init__(self, inputs, outputs):
-		self.input_size = inputs
-		self.output_size = outputs
+	def __init__(self, output):
+		self.output_size = output
 		self.model = self._build_model()
 	def _build_model(self):
-		keras.initializers.Constant(value=0)
 		model = Sequential()
-		model.add(Dense(32, input_dim=self.input_size, activation='linear'))
-		model.add(Dense(32, activation='linear'))
-		model.add(Dense(self.output_size, activation='linear'))
-		model.compile(loss='mean_absolute_error', optimizer='Adam', metrics=['accuracy'])
+		model.add(Conv2D(32, (3, 3), input_shape=(1, 28, 28), data_format='channels_first'))
+		model.add(Activation('relu'))
+		model.add(MaxPooling2D(pool_size=(2, 2)))
+
+		model.add(Conv2D(32, (3, 3), data_format='channels_first'))
+		model.add(Activation('relu'))
+		model.add(MaxPooling2D(pool_size=(2, 2)))
+
+		model.add(Conv2D(64, (3, 3), data_format='channels_first'))
+		model.add(Activation('relu'))
+		model.add(MaxPooling2D(pool_size=(2, 2)))
+
+		model.add(Flatten())
+		model.add(Dense(64))
+		model.add(Activation('relu'))
+		model.add(Dropout(0.5))
+		model.add(Dense(self.output_size))
+		model.add(Activation('relu'))
+
+		model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 		return model
 	def fit(self, inputs, target, valid_inputs, valid_target):
 		self.model.fit(
 			inputs,
 			target,
 			validation_data=(valid_inputs, valid_target),
-			epochs=100,
+			epochs=10,
 			batch_size=64,
 			verbose=0)
 	def predict(self, X):

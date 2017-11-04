@@ -72,6 +72,8 @@ $> python run.py --predict 1
 $> 1.0
 $> python run.py --predict 0
 $> 4.51851e-13
+$> python run.py --predict 5
+$> Error
 ```
 
 ## directories to turn in
@@ -93,6 +95,10 @@ $> python run.py --predict 5
 $> 4.9957
 $> python run.py --predict 9
 $> 8.99301
+$> python run.py --predict 42
+$> Error
+$> python run.py --predict
+$>
 ```
 
 ## directories to turn in
@@ -116,6 +122,10 @@ $> python run.py --predict 4862135878
 $> 9.03341
 $> python run.py --predict 0005000000
 $> 4.93534
+$> python run.py --predict 12345678901234
+$> Error
+$> python run.py --predict
+$>
 ```
 
 As you can see, the algorithm will not always be entirely accurate. This could be due to a number of factors. The algorithm generalizing towards an accurate guess rather than a one-to-one decision is what makes neural networks both relatable and mysterious. How can you improve your accuracy? Why do you think the algorithm chose the way it did? Why do you think the algorithm loses accuracy on data of this structure?
@@ -132,14 +142,28 @@ As you can see, the algorithm will not always be entirely accurate. This could b
 
 # ex03 - Images
 
+For this exercise we will be classifying from the [MNIST handwritten digit dataset](http://yann.lecun.com/exdb/mnist/). You will need to design a Convolutional Neural Network to scan a two-dimensional image and classify which digit it represents.
+
+```
+$> python run.py --predict 1
+$> 1
+$> python run.py --predict 5
+$> 5
+$> python run.py --predict 8
+$> 8
+$> python run.py --predict 42
+$> Error
+```
+
 ## directories to turn in
  - ex03
 ## subdirectories to turn in
  - data
  - data/images
-/- data/images/train
-/- data/images/validation
-/- data/images/predict
+ - data/images/0
+ - data/images/1
+ - data/images/...
+ - data/images/9
 ## files to turn in
  - run.py
  - classes.py

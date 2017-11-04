@@ -17,20 +17,25 @@ def get_inputs(path):
 	return (X_, x, Y_, y)
 
 def run(args, network):
-	if args[1] == '--train':
+	if args[1] == '--train' and len(args) == 2:
 		print "Training ..."
 		for i in range(EPOCHS):
 			(X, x, Y, y) = get_inputs('data/numbers.csv')
 			network.fit(X, Y, x, y)
 		network.save('trained.h5')
-	elif args[1] == '--predict':
-		M = []
-		for i in args[2]:
-			M.append(float(i))
-		T = np.array([M])
-		P = list(network.predict(T)[0])[0]
-		print P
+	elif args[1] == '--predict' and len(args) == 3:
+		if len(args[2]) == 10:
+			M = []
+			for i in args[2]:
+				M.append(float(i))
+			T = np.array([M])
+			P = list(network.predict(T)[0])[0]
+			print P
+		else:
+			print "Error"
+			return
 	else:
+		print "Error"
 		return
 	print "Arguments Processed!"
 
@@ -42,4 +47,4 @@ if __name__ == "__main__":
         run(sys.argv, network)
     else:
         print "Options: python run.py --train\n\
-         python run.py --predict [value]"
+         python run.py --predict <value>"
