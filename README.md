@@ -59,9 +59,11 @@ X0,X1,X2,Y0
 0,0,1,1
 0,0,1,1
 1,1,0,0
+...
 ```
 
 Rows indicate a set of valid data. Columns indicate what that data is. Label your data with succinct names that allow users to identify what that data is.
+For all of your datasets there should be at least 300 training examples.
 
 # ex00 - 101010
 
