@@ -12,7 +12,7 @@ EPOCHS = 1
 K.set_image_dim_ordering('th')
 
 def run(args, network):
-	if args[1] == '--train':
+	if args[1] == '--train' and len(args) == 2:
 		print "Training ..."
 		for i in range(EPOCHS):
 			(X, Y), (x, y) = mnist.load_data()
@@ -23,8 +23,8 @@ def run(args, network):
 			Y_ = np_utils.to_categorical(Y)
 			y_ = np_utils.to_categorical(y)
 			network.fit(X_, Y_, x_, y_)
-		network.save('trained.h5')
-	elif args[1] == '--predict':
+	network.save('trained.h5')
+	elif args[1] == '--predict' and len(args) == 3:
 		if args[2] == '0':
 			im = imread('data/images/0/10.png')
 			im = im / 255
@@ -65,6 +65,9 @@ def run(args, network):
 			im = imread('data/images/9/9.png')
         	        im = im / 255
         	        print network.predict(im)
+		else:
+			print "Error"
+			return
 
 	else:
 		print 'Unknown command'

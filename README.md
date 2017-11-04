@@ -142,7 +142,7 @@ As you can see, the algorithm will not always be entirely accurate. This could b
 
 # ex03 - Images
 
-For this exercise we will be classifying from the [MNIST handwritten digit dataset](http://yann.lecun.com/exdb/mnist/). You will need to design a Convolutional Neural Network to scan a two-dimensional image and classify which digit it represents.
+For this exercise we will be classifying from the [MNIST handwritten digit dataset](http://yann.lecun.com/exdb/mnist/). You will need to design a Convolutional Neural Network to scan a two-dimensional image and classify which digit it represents. Your program will take similar arguments, just like before, but this time you will need to load the appropriate image from the appropriate folder and then classifiy that image, returning the result on the command line.
 
 ```
 $> python run.py --predict 1
