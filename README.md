@@ -39,6 +39,13 @@ class Network():
 ```
 
 # ex00 - 101010
+## directories to turn in
+ - data
+## files to turn in
+ - run.py
+ - classes.py
+ - trained.h5
+ - data/numbers.csv
 
 # ex01 - Thinking Bigger
 
