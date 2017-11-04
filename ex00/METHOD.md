@@ -5,10 +5,9 @@
 ## Describe the model you are using. Why did you use this model? Why this model over other models? Use as much detail as you can and really defend your decision.
 
 # Activations
-The layers in our network are activated using linear activation. Linear activation will allow us to scale along a range of numbers
+
 
 # Error
-The error is calculated by using Mean Absolute Error.
+
 
 # Optimizer
-The optimizer we use is RMSprop.
