@@ -49,8 +49,6 @@ def run(args, network):
 			im = cv2.imread('data/images/7/0.png')
 		elif args[2] == '8':
 			im = cv2.imread('data/images/8/61.png')
-		elif args[2] == '9':
-			im = cv2.imread('data/images/9/9.png')
 		else:
 			print "Error"
 			return
@@ -61,9 +59,10 @@ def run(args, network):
 		P[0:28, 0:28] = grey
 		P_ = np.reshape(P, (1, 1, 28, 28))
 		result = network.predict(P_)[0]
-		for i in range(len(result)):
-			if result[i] == 1:
-				print i
+		print result
+#		for i in range(len(result)):
+#			if result[i] == 1:
+#				print i
 
 	else:
 		print 'Unknown command'
